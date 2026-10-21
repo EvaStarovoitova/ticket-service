@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    tools {
+        maven 'Maven3'
+        jdk 'Java21'
+    }
+   
+
+    stages {
+        stage('Build') {
+            steps {
+                dir('CProgramDataJenkins.jenkinsworkspacelab3_tickets') {
+                    bat 'call mvn compile'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('CProgramDataJenkins.jenkinsworkspacelab3_tickets') {
+                    bat 'call mvn test -DforkCount=0'
+                }
+            }
+        }
+
+        stage('Quality Check & Package') {
+            steps {
+                dir('CProgramDataJenkins.jenkinsworkspacelab3_tickets') {
+                    bat 'call mvn validate && call mvn package -DskipTests'
+                }
+            }
+        }
+    }
+}
