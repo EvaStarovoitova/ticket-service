@@ -52,4 +52,15 @@ public class TicketServiceTest {
         assertEquals(1, event.availableSeats); // место вернулось
         assertTrue(ticket.isCancelled);
     }
+
+
+    @Test
+    void testTicketCreationAndAttributes() {
+        Ticket ticket = service.bookTicket(event, customer);
+
+        assertNotNull(ticket, "Билет должен быть создан");
+        assertEquals(event, ticket.event, "Событие в билете должно совпадать с заданным");
+        assertEquals(customer, ticket.customer, "Покупатель билета должен совпадать с заданным");
+        assertFalse(ticket.isCancelled, "Новый созданный билет не должен быть отменен");
+    }
 }
