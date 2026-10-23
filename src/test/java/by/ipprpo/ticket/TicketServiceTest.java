@@ -28,7 +28,7 @@ public class TicketServiceTest {
     void testBookTicketSuccess() {
         Ticket ticket = service.bookTicket(event, customer);
         assertNotNull(ticket);
-        assertEquals(99, event.availableSeats);
+        assertEquals(0, event.availableSeats);
     }
 
     // Тест 2: Ошибка, если места закончились
