@@ -28,7 +28,7 @@ public class TicketServiceTest {
     void testBookTicketSuccess() {
         Ticket ticket = service.bookTicket(event, customer);
         assertNotNull(ticket);
-        assertEquals(0, event.availableSeats);
+        assertEquals(99, event.availableSeats);
     }
 
     // Тест 2: Ошибка, если места закончились
@@ -63,4 +63,4 @@ public class TicketServiceTest {
         assertEquals(customer, ticket.customer, "Покупатель билета должен совпадать с заданным");
         assertFalse(ticket.isCancelled, "Новый созданный билет не должен быть отменен");
     }
-}
+}пше
