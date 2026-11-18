@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -10,6 +11,12 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'call mvn compile'
+            }
+        }
+
+        stage('Static Analysis') {
+            steps {
+                bat 'call mvn checkstyle:check'
             }
         }
 
