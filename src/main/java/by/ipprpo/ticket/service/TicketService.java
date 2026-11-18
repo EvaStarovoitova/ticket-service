@@ -1,4 +1,4 @@
-package by.ipprpo.ticket.service;
+package by.ipprpo.ticket.service*;
 
 import by.ipprpo.ticket.model.Customer;
 import by.ipprpo.ticket.model.Event;
