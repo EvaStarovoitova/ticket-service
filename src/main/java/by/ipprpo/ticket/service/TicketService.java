@@ -1,5 +1,5 @@
 package by.ipprpo.ticket.service;
-import java.util.*;
+//import java.util.*;
 import by.ipprpo.ticket.model.Customer;
 import by.ipprpo.ticket.model.Event;
 import by.ipprpo.ticket.model.Ticket;
@@ -8,9 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TicketService {
+
     private static final Logger log = LoggerFactory.getLogger(TicketService.class);
 
-    // Внедрение зависимости через интерфейс (DI)
+
     private TicketRepository repository;
     private int ticketCounter = 1;
 
@@ -18,7 +19,7 @@ public class TicketService {
         this.repository = repository;
     }
 
-    // Покупка билета (Вариант 9)
+
     public Ticket bookTicket(Event event, Customer customer) {
         if (event == null || customer == null) {
             log.error("Ошибка покупки билета: событие или покупатель не заданы (null)");
@@ -40,7 +41,7 @@ public class TicketService {
         return ticket;
     }
 
-    // Индивидуальное задание: отмена билета с возвратом места
+
     public void cancelTicket(int ticketId) {
         Ticket ticket = repository.findById(ticketId);
         if (ticket == null || ticket.isCancelled) {

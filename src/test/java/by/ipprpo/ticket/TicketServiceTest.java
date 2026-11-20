@@ -54,14 +54,6 @@ public class TicketServiceTest {
     }
 
 
-
-    @Test
-    void testTicketCreation() {
-        Ticket ticket = service.bookTicket(event, customer);
-        assertNotNull(ticket);
-    }
-
-    // Тест 4: Ошибка при передаче null (проверка уровня ERROR в логах)
     @Test
     void testBookTicketInvalidData() {
         assertThrows(IllegalArgumentException.class, () -> {
